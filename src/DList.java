@@ -1,14 +1,12 @@
-//**************************************************************************************************
-// CLASS: DList<E> (DList.java)
+//**************************************************************************************************************
+// CLASS: DList
 //
-// AUTHOR
-// Kevin R. Burger (burgerk@asu.edu)
-// Computer Science & Engineering Program
-// Fulton Schools of Engineering
-// Arizona State University, Tempe, AZ 85287-8809
+// COURSE AND PROJECT INFO
+// CSE205 Object Oriented Programming and Data Structures, Fall Session B 2019
+// Project Number: 4
 //
-// (c) 2018 Kevin R Burger
-//**************************************************************************************************
+// AUTHOR: Aiden Stern, amstern3, amstern3@asu.edu
+//**************************************************************************************************************
 
 /**
  * Implements a generic doubly linked list where the type of each element is E.

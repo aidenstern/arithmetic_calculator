@@ -1,12 +1,11 @@
 //**************************************************************************************************************
 // CLASS: Expression
 //
-// AUTHOR
-// Kevin R. Burger (burgerk@asu.edu)
-// Computer Science & Engineering Program
-// Fulton Schools of Engineering
-// Arizona State University, Tempe, AZ 85287-8809
-// http://www.devlang.com
+// COURSE AND PROJECT INFO
+// CSE205 Object Oriented Programming and Data Structures, Fall Session B 2019
+// Project Number: 4
+//
+// AUTHOR: Aiden Stern, amstern3, amstern3@asu.edu
 //**************************************************************************************************************
 
 /**
@@ -26,24 +25,6 @@ public class Expression {
      * Tokenizer class to break the string into Token objects which are stored in the token queue instance
      * variable.
      *
-     * PSEUDOCODE:
-     * Create a new Queue<Token> object and pass it to setTokenQueue (this initializes mTokenQueue)
-     * Declare and create a Tokenizer object named tokenizer passing pExprStr to the ctor
-     * Declare a Token object named prevToken initialized to null
-     * -- Read the first token
-     * Declare a Token object named token and assign the return value from tokenizer.nextToken() to it
-     * -- Keep reading tokens until tokenizer.nextToken() returns null
-     * While token is not null Do
-     *     -- Check for and handle the negation operator.
-     *     If token instanceof SubOperator Then
-     *         token = negationCheck(token, prevToken)
-     *     End if
-     *     -- Add the token to the queue.
-     *     Call getTokenQueue().enqueue(token)
-     *     prevToken = token
-     *     -- Read the next token.
-     *     token = call tokenizer.nextToken()
-     * End While
      */
     public Expression(String pExpStr) {
         Queue<Token> tokenQueue = new Queue<>();
@@ -66,32 +47,6 @@ public class Expression {
      *
      * Evaluates the expression and returns the result as a Double.
      *
-     * PSEUDOCODE:
-     * Declare and create a Stack<Operator> object named operatorStack
-     * Declare and create a Stack<Operand> object named operandStack
-     * While mTokenQueue is not empty Do
-     *     Declare and create a Token object named token assigning getTokenQueue().dequeue() to it
-     *     If token instanceof Operand Then
-     *         Push token onto the operand stack (type cast token to Operand)
-     *     ElseIf token instanceof LeftParen Then
-     *         Push token onto the operator stack (type cast token to LeftParen)
-     *     ElseIf token instanceof RightParen Then
-     *         While the operator on the top of the operator stack is not an instanceof LeftParen Do
-     *             Call topEval(operatorStack, operandStack)
-     *         End While
-     *         Pop the top operator from the operator stack -- removes the LeftParen
-     *     Else
-     *         Declare Operator object named operator and assign token to it (type cast to Operator)
-     *         While keepEvaluating(operatorStack, operator) is true Do
-     *             Call topEval(operatorStack, operandStack)
-     *         EndWhile
-     *         Push operator onto the operator stack
-     *     End If
-     * End While
-     * While the operator stack is not empty Do
-     *     Call topEval(operatorStack, operandStack)
-     * End While
-     * Pop the top Operand from the operand stack and return its value (call getValue() on the Operand).
      */
     public Double evaluate() {
         Stack<Operator> operatorStack = new Stack<>();
@@ -173,17 +128,6 @@ public class Expression {
      * the top operator on the operator stack is a binary operator, we pop two operands from the operand stack,
      * evaluate the result of the operation, and push the result onto the operand stack.
      *
-     * PSEUDOCODE:
-     * Declare and create Operand object named right = Call pOperandStack.pop()
-     * Declare and create Operator object named operator = Call pOperatorStack.pop()
-     * If operator instanceof UnaryOperator Then
-     *     Typecast operator to UnaryOperator and call evaluate(right) on it
-     *     Push the returned Operand from the above statement onto the operand stack
-     * Else
-     *     Declare and create Operand object named left = Call pOperandStack.pop()
-     *     Typecast operator to BinaryOperator and call evaluate(left, right) on it
-     *     Push the returned Operand from the above statement onto the operand stack
-     * End If
      */
     private void topEval(Stack<Operator> pOperatorStack, Stack<Operand> pOperandStack) {
         Operand right = pOperandStack.pop();
