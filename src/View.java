@@ -82,14 +82,6 @@ public class View extends JFrame implements ActionListener {
      *
      * Called when one of the JButtons is clicked. Detects which button was clicked and handles it.
      *
-     * PSEUDOCODE:
-     * If the source of the event was mClearbutton Then
-     *     Call clear()
-     * ElseIf the source of the event was mEvalButton Then
-     *     Call evaluate()
-     * ElseIf the source of the event was mExitButton Then
-     *     Call exit() on mMain.
-     * End If
      */
     @Override
     public void actionPerformed(ActionEvent pEvent) {
@@ -114,11 +106,6 @@ public class View extends JFrame implements ActionListener {
     /**
      * evaluate() is called when the Evaluate button is clicked.
      *
-     * PSEUDOCODE:
-     * Retrieve the text string from mInputText
-     * Declare and create an Expression object named expr passing the text string to the ctor
-     * Call expr.evaluate() and assign the return value a Double object named result
-     * Display result in mResultLabel (call toString on result)
      */
     public void evaluate() {
         Expression expr = new Expression(mInputText.getText());
@@ -127,12 +114,8 @@ public class View extends JFrame implements ActionListener {
     }
 
     /**
-     * messageBox()
+     * messageBox() is called to show a message frame.
      *
-     * Note that passing 'this' as the first arg causes the View to be the parent of the message
-     * dialog window, so the dialog will be centered in the middle of the View. If we pass 'null'
-     * as the argument, then the dialog does not have a parent frame and will be centered in the
-     * middle of the display.
      */
     public void messageBox(String pMessage) {
         JOptionPane.showMessageDialog(this, pMessage, "Message", JOptionPane.PLAIN_MESSAGE);
