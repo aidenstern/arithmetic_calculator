@@ -1,6 +1,6 @@
 **<h1>Arithmetic Calculator</h1>**
 
-This is my final project for CSE205: Object Oriented Programming and Data Structures.
+This is my final project for CSE205: Object Oriented Programming and Data Structures for Arizona State University in Fall Session B 2019.
 
 The project implements a GUI calculator which accepts a syntactically correct arithmetic expression written in infix notation and displays the evaluation of said expression.
 
